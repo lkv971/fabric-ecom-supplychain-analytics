@@ -1,0 +1,43 @@
+table Departments
+	lineageTag: dff68934-cef4-4620-ba7d-a0cdf087210b
+	sourceLineageTag: [SupplyChain].[DimDepartments]
+
+	column 'Department ID'
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 1ab7838a-9102-4384-8dd6-15b5cf76627c
+		sourceLineageTag: DepartmentID
+		summarizeBy: none
+		sourceColumn: DepartmentID
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 6c5add48-c3f5-4975-89e9-34c438db9527
+		sourceLineageTag: DepartmentName
+		summarizeBy: none
+		sourceColumn: DepartmentName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Departments = entity
+		mode: directLake
+		source
+			entityName: DimDepartments
+			schemaName: SupplyChain
+			expressionSource: DatabaseQuery
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

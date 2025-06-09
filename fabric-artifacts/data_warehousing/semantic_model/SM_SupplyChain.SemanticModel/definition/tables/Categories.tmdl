@@ -1,0 +1,43 @@
+table Categories
+	lineageTag: 0dde8818-32b3-4d25-a12b-babb345df42c
+	sourceLineageTag: [SupplyChain].[DimCategories]
+
+	column 'Category ID'
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 56a3ebed-9aa1-4df3-bbb2-0c7ccc6c06a2
+		sourceLineageTag: CategoryID
+		summarizeBy: none
+		sourceColumn: CategoryID
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 6afeb482-c4dd-4395-b912-62c2812bed71
+		sourceLineageTag: CategoryName
+		summarizeBy: none
+		sourceColumn: CategoryName
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Categories = entity
+		mode: directLake
+		source
+			entityName: DimCategories
+			schemaName: SupplyChain
+			expressionSource: DatabaseQuery
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

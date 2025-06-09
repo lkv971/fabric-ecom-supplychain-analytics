@@ -1,0 +1,24 @@
+relationship f3b06147-cf2e-9ae4-b9a9-c8d4a0f4ad33
+	fromColumn: Orders.'Customer ID'
+	toColumn: Customers.'Customer ID'
+
+relationship 0fa24f7b-8604-ed10-0684-4881903e020d
+	fromColumn: Orders.'Country ID'
+	toColumn: Countries.'Country ID'
+
+relationship c517f0ae-2589-3f75-92fb-f6c1adf58072
+	fromColumn: Orders.'Order Date'
+	toColumn: Dates.Date
+
+relationship d1e697a6-478e-b352-5384-b73172bca53a
+	fromColumn: Orders.'Product ID'
+	toColumn: Products.'Product ID'
+
+relationship 564bf883-1860-7c8f-518d-237eb8740d89
+	fromColumn: Products.'Category ID'
+	toColumn: Categories.'Category ID'
+
+relationship d5cd4445-2fc6-0aac-9a53-733bd1df65b4
+	fromColumn: Products.'Department ID'
+	toColumn: Departments.'Department ID'
+

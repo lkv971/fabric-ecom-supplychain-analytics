@@ -1,0 +1,114 @@
+table Products
+	lineageTag: 88423e5f-2249-478d-9119-192ba6dee359
+	sourceLineageTag: [SupplyChain].[DimProducts]
+
+	measure 'Average Product Price' = AVERAGE(Products[Price])
+		displayFolder: Product Metrics
+		lineageTag: b1a02d0a-7495-48fb-9653-6806773df34b
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Top Selling Product' = TOPN(1, VALUES(Products[Product]), [Total Products Sold], DESC)
+		displayFolder: Product Metrics
+		lineageTag: 579b254c-a667-4454-8f50-c55a60885a17
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+	column 'Product ID'
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 10fdaac9-0270-4df1-93dd-9e8125134197
+		sourceLineageTag: ProductID
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Product
+		dataType: string
+		sourceProviderType: varchar(500)
+		displayFolder: Product Details
+		lineageTag: b842c6e6-f338-42ad-911c-1273da256b70
+		sourceLineageTag: ProductName
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category ID'
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 7175ed37-4bde-4858-9822-a7b3c48530c6
+		sourceLineageTag: CategoryID
+		summarizeBy: none
+		sourceColumn: CategoryID
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Department ID'
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 241ee521-e6d8-4793-a03e-56e24a175660
+		sourceLineageTag: DepartmentID
+		summarizeBy: none
+		sourceColumn: DepartmentID
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Price
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		sourceProviderType: float
+		displayFolder: Product Details
+		lineageTag: be4d1e2e-2b9e-41e6-9d49-632138beb024
+		sourceLineageTag: Price
+		summarizeBy: sum
+		sourceColumn: Price
+
+		changedProperty = DisplayFolder
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	partition Products = entity
+		mode: directLake
+		source
+			entityName: DimProducts
+			schemaName: SupplyChain
+			expressionSource: DatabaseQuery
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

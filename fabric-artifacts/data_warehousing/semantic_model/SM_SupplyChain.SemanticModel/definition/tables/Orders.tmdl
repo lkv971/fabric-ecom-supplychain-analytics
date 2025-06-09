@@ -1,0 +1,605 @@
+table Orders
+	lineageTag: d23aa252-be1e-44b1-8392-bcc62e551ffa
+	sourceLineageTag: [SupplyChain].[FactOrders]
+
+	measure 'Average Discount' = AVERAGE(Orders[Discount])
+		displayFolder: Order Metrics
+		lineageTag: 24cc3ab1-ef01-4586-89d2-18c4a9535845
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Order Value' = DIVIDE([Total Sales After Discount], [Total Orders])
+		displayFolder: Order Metrics
+		lineageTag: a7b080f3-f74a-45a9-9e76-27dfe8584030
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+	measure 'Average Price' = AVERAGE(Orders[Price])
+		displayFolder: Order Metrics
+		lineageTag: 161bec54-c7ab-4298-824d-5b25ebb55eed
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Discount Effectiveness Rate %' = ```
+			
+			    VAR DiscountedSales = CALCULATE(Orders[Total Sales], Orders[Discount] > 0)
+			    VAR NonDiscountedSales = CALCULATE(Orders[Total Sales], Orders[Discount] = 0)
+			    RETURN DIVIDE(DiscountedSales, NonDiscountedSales, 0)
+			```
+		displayFolder: Order Metrics
+		lineageTag: 2c3d3454-14a6-44b1-8d97-d4f631c66d9f
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+	measure 'Discount Rate %' = DIVIDE([Total Discounts], [Total Sales After Discount])
+		displayFolder: Order Metrics
+		lineageTag: 6f9f6841-63f8-4ab7-a56f-51c625320866
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+	measure 'Profit Margin %' = DIVIDE([Total Profit], [Total Sales], 0)
+		displayFolder: Order Metrics
+		lineageTag: 9398e6f8-b381-476d-9627-9bc847f305ab
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+	measure 'Total Discounts' = SUM(Orders[Discount])
+		displayFolder: Order Metrics
+		lineageTag: ba0d6f87-a6b0-4d29-b946-391b24fa820c
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Orders' = DISTINCTCOUNT(Orders[Order ID])
+		formatString: 0
+		displayFolder: Order Metrics
+		lineageTag: 277dc976-8ca6-4f14-91d2-e80eeeee0574
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+	measure 'Total Products Sold' = SUM(Orders[Quantity])
+		formatString: 0
+		displayFolder: Order Metrics
+		lineageTag: dd8fd45b-0ad8-482c-8a3c-a23ad429b980
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+	measure 'Total Profit' = SUM(Orders[Profit])
+		displayFolder: Order Metrics
+		lineageTag: f1a2dda2-46fc-4980-bf06-ac9c306c3e85
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Sales' = SUM(Orders[Total])
+		displayFolder: Order Metrics
+		lineageTag: 1b49f8aa-5067-4eba-8554-aafb0bc16ff8
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Sales After Discount' = SUM(Orders[Total After Discount])
+		displayFolder: Order Metrics
+		lineageTag: 9e0d799f-d165-47a7-94d8-b35645c9c909
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Fulfillment Time' = [Average Lead Time] + [Average Shipping Time]
+		displayFolder: Shipping Metrics
+		lineageTag: 5a577cd1-ca02-4a20-a86f-c2aebe51e15e
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+	measure 'Average Lead Time' = AVERAGE(Orders[Days For Shipment])
+		displayFolder: Shipping Metrics
+		lineageTag: 04820bed-7c3c-4295-bdc1-b8b1a42021f1
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Shipping Time' = AVERAGE(Orders[Days For Shipping])
+		displayFolder: Shipping Metrics
+		lineageTag: b885e702-2a1d-49d7-9684-6cfd881c407a
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Late Delivery Count' = CALCULATE(COUNT(Orders[Order ID]), Orders[Late Delivery Risk] = 1)
+		formatString: 0
+		displayFolder: Shipping Metrics
+		lineageTag: 5fb7f46b-25fd-479b-bdd3-4754f6ce18dd
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+	measure 'Late Delivery Rate %' = DIVIDE(Orders[Late Delivery Count], COUNT(Orders[Order ID]))
+		displayFolder: Shipping Metrics
+		lineageTag: 12ca9cde-be75-47fa-b73c-4683de3898f7
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'On Time Delivery Count' = CALCULATE(COUNT(Orders[Order ID]), Orders[Late Delivery Risk] = 0)
+		formatString: 0
+		displayFolder: Shipping Metrics
+		lineageTag: 228bd2db-4d3e-4fcf-a332-a9d5c0c8d5e5
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+	measure 'On Time Delivery Rate %' = DIVIDE([On Time Delivery Count], COUNT(Orders[Order ID]))
+		displayFolder: Shipping Metrics
+		lineageTag: aab4aa75-b0b8-4aa1-8e72-3ba1c8e32a10
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Target = AVERAGE(Orders[On Time Shipping Target])
+		displayFolder: Shipping Metrics
+		lineageTag: a0cab19a-032c-495d-8638-179bd37c1bc7
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'LY Sales' = CALCULATE([Total Sales After Discount], SAMEPERIODLASTYEAR(Dates[Date]))
+		displayFolder: Time Intelligence
+		lineageTag: a10a6c7b-74e6-45ff-91e5-d2fd9cd77ff6
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'MTD Sales' = TOTALMTD(Orders[Total Sales After Discount], Dates[Date])
+		displayFolder: Time Intelligence
+		lineageTag: 71b1a503-19da-4992-a82f-4403ab3785a5
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'QTD Sales' = TOTALQTD([Total Sales After Discount], Dates[Date])
+		displayFolder: Time Intelligence
+		lineageTag: 59670388-fead-4612-95e4-32af66910603
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'YoY Sales Change' = ```
+			
+			    VAR CurrentYearRevenue = Orders[Total Sales After Discount]
+			    VAR PreviousYearRevenue = CALCULATE(Orders[Total Sales After Discount], SAMEPERIODLASTYEAR(Dates[Date]))
+			    RETURN CurrentYearRevenue - PreviousYearRevenue
+			```
+		displayFolder: Time Intelligence
+		lineageTag: c22368f1-5651-48ca-b1ad-1c7a7e931f56
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'YoY Sales Growth %' = ```
+			
+			    VAR CurrentYearRevenue = [Total Sales After Discount]
+			    VAR PreviousYearRevenue = CALCULATE([Total Sales After Discount], SAMEPERIODLASTYEAR(Dates[Date]))
+			    RETURN DIVIDE(CurrentYearRevenue - PreviousYearRevenue, PreviousYearRevenue, 0)
+			```
+		displayFolder: Time Intelligence
+		lineageTag: 13088931-1bec-41c8-ab7b-05f1e1183381
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'YTD Sales' = ```
+			TOTALYTD(Orders[Total Sales After Discount], Dates[Date]) 
+			```
+		displayFolder: Time Intelligence
+		lineageTag: 03bd4a2a-f340-48de-bbd0-551fa675e346
+
+		changedProperty = DisplayFolder
+
+		changedProperty = Name
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Order ID'
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 79df6d07-3dae-4968-a8a6-f8ae3ac008ab
+		sourceLineageTag: OrderID
+		summarizeBy: count
+		sourceColumn: OrderID
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Date'
+		dataType: dateTime
+		formatString: Short Date
+		sourceProviderType: date
+		displayFolder: Date Keys
+		lineageTag: 2b9e0e8a-985a-40ea-986f-7b9fce397f19
+		sourceLineageTag: OrderDate
+		summarizeBy: none
+		sourceColumn: OrderDate
+
+		changedProperty = Name
+
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Customer ID'
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 327b5a6e-fd98-48fa-9c00-610ffd6a77c0
+		sourceLineageTag: CustomerID
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product ID'
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 40a6a491-b577-4f43-bd71-043909438efd
+		sourceLineageTag: ProductID
+		summarizeBy: none
+		sourceColumn: ProductID
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Country ID'
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a16f5740-9313-4860-81a8-e4bfb5b266ae
+		sourceLineageTag: CountryID
+		summarizeBy: none
+		sourceColumn: CountryID
+
+		changedProperty = IsHidden
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discount
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		sourceProviderType: float
+		displayFolder: Order Metrics
+		lineageTag: e6a2775d-97df-4fd5-9077-8308d3bd29c3
+		sourceLineageTag: Discount
+		summarizeBy: sum
+		sourceColumn: Discount
+
+		changedProperty = FormatString
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Price
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		sourceProviderType: float
+		displayFolder: Order Metrics
+		lineageTag: f6ee4243-13ea-4cd4-a796-7b030877f23e
+		sourceLineageTag: Price
+		summarizeBy: sum
+		sourceColumn: Price
+
+		changedProperty = FormatString
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		displayFolder: Order Metrics
+		lineageTag: 431dfe97-0371-4dcf-8b60-49715cd35c5a
+		sourceLineageTag: Quantity
+		summarizeBy: average
+		sourceColumn: Quantity
+
+		changedProperty = SummarizeBy
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = User
+
+	column Total
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		sourceProviderType: float
+		displayFolder: Order Metrics
+		lineageTag: 1838a936-2b56-4770-9f5d-4398b4a31131
+		sourceLineageTag: Total
+		summarizeBy: sum
+		sourceColumn: Total
+
+		changedProperty = FormatString
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Total After Discount'
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		sourceProviderType: float
+		displayFolder: Order Metrics
+		lineageTag: e1e09d1e-a49f-4eac-ba2a-96f206dcfaa9
+		sourceLineageTag: TotalAfterDiscount
+		summarizeBy: sum
+		sourceColumn: TotalAfterDiscount
+
+		changedProperty = Name
+
+		changedProperty = FormatString
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Profit
+		dataType: double
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		sourceProviderType: float
+		displayFolder: Order Metrics
+		lineageTag: 00a067d8-fad9-4930-82bd-10f948b47274
+		sourceLineageTag: Profit
+		summarizeBy: sum
+		sourceColumn: Profit
+
+		changedProperty = FormatString
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Payment Type'
+		dataType: string
+		sourceProviderType: varchar(100)
+		lineageTag: 67c4668b-3fa6-4bca-9aff-e60ded46227f
+		sourceLineageTag: PaymentType
+		summarizeBy: none
+		sourceColumn: PaymentType
+
+		changedProperty = Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Days For Shipping'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		displayFolder: Shipping Details
+		lineageTag: db2b87fc-7cb3-471e-bde2-b179e04697da
+		sourceLineageTag: DaysForShipping
+		summarizeBy: sum
+		sourceColumn: DaysForShipping
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Days For Shipment'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		displayFolder: Shipping Details
+		lineageTag: 69a31723-e10b-432f-ba33-15e7617c5069
+		sourceLineageTag: DaysForShipment
+		summarizeBy: sum
+		sourceColumn: DaysForShipment
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shipping Mode'
+		dataType: string
+		sourceProviderType: varchar(100)
+		displayFolder: Shipping Details
+		lineageTag: 69e27193-808d-454b-bf26-963b080baab7
+		sourceLineageTag: ShippingMode
+		summarizeBy: none
+		sourceColumn: ShippingMode
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Late Delivery Risk'
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		displayFolder: Shipping Details
+		lineageTag: 3541c319-b4b2-462a-a415-ad2e02d3c769
+		sourceLineageTag: LateDeliveryRisk
+		summarizeBy: sum
+		sourceColumn: LateDeliveryRisk
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Status'
+		dataType: string
+		sourceProviderType: varchar(100)
+		displayFolder: Shipping Details
+		lineageTag: 3740a1d4-5f79-4053-afd7-eb20bbd201f3
+		sourceLineageTag: DeliveryStatus
+		summarizeBy: none
+		sourceColumn: DeliveryStatus
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Shipping Date'
+		dataType: dateTime
+		formatString: Short Date
+		sourceProviderType: date
+		displayFolder: Date Keys
+		lineageTag: 4c7c51c1-385c-449b-ab9e-29caf1d4a060
+		sourceLineageTag: ShippingDate
+		summarizeBy: none
+		sourceColumn: ShippingDate
+
+		changedProperty = DataType
+
+		changedProperty = FormatString
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'On Time Shipping Target'
+		dataType: double
+		sourceProviderType: float
+		displayFolder: Shipping Metrics
+		lineageTag: ae691b35-85a3-4b31-b354-0b21fe9ed0af
+		sourceLineageTag: OnTimeShippingTarget
+		summarizeBy: sum
+		sourceColumn: OnTimeShippingTarget
+
+		changedProperty = Name
+
+		changedProperty = DisplayFolder
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Orders = entity
+		mode: directLake
+		source
+			entityName: FactOrders
+			schemaName: SupplyChain
+			expressionSource: DatabaseQuery
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

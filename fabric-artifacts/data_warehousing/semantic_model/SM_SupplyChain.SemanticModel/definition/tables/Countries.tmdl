@@ -1,0 +1,87 @@
+table Countries
+	lineageTag: f5d29a77-d3a8-4a12-85b5-92ee4dec6ad0
+	sourceLineageTag: [SupplyChain].[DimCountries]
+
+	column 'Country ID'
+		dataType: int64
+		isHidden
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: abee4397-d2de-4f19-9437-5ffa1d0928cc
+		sourceLineageTag: CountryID
+		summarizeBy: none
+		sourceColumn: CountryID
+
+		changedProperty = Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 18f2e0d6-becc-4357-ba0c-77f2110aa0ee
+		sourceLineageTag: Country
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: Country
+
+		changedProperty = DataCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: a94442a1-fe9a-487f-a33c-f50b9d870aec
+		sourceLineageTag: Region
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: Region
+
+		changedProperty = DataCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column Market
+		dataType: string
+		sourceProviderType: varchar(200)
+		lineageTag: 852545fd-0862-4f1a-a118-5e7f7da3aa3a
+		sourceLineageTag: Market
+		dataCategory: Continent
+		summarizeBy: none
+		sourceColumn: Market
+
+		changedProperty = DataCategory
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Geography Hierarchy'
+		lineageTag: ee71dc4e-74a1-46f2-afe6-fcdaedfb7d9b
+
+		level Market
+			lineageTag: 9f19ce83-9beb-4d0a-ae9a-6a2284bb3449
+			column: Market
+
+		level Region
+			lineageTag: d7ebe013-204b-43b0-ab8a-ad4f69a2daa7
+			column: Region
+
+		level Country
+			lineageTag: 1e21f08b-2bb3-4e42-bca8-6f9cb320e38f
+			column: Country
+
+		changedProperty = Name
+
+	partition Countries = entity
+		mode: directLake
+		source
+			entityName: DimCountries
+			schemaName: SupplyChain
+			expressionSource: DatabaseQuery
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

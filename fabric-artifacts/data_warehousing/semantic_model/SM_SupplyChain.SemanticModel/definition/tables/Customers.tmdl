@@ -8,6 +8,7 @@ table Customers
 			VAR RepeatCustomers = CALCULATE(DISTINCTCOUNT(Orders[Customer ID]), FILTER(Orders, CALCULATE(COUNTROWS(Orders), ALLEXCEPT(Orders, Orders[Customer ID])) > 1)) 
 			RETURN DIVIDE (RepeatCustomers, TotalCustomers)
 			```
+		formatString: #,##0.00 %
 		displayFolder: Customer Metrics
 		lineageTag: 30d053a3-37ab-4db0-932c-33775d54ac14
 

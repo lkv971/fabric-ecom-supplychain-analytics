@@ -3,6 +3,7 @@ table Products
 	sourceLineageTag: [SupplyChain].[DimProducts]
 
 	measure 'Average Product Price' = AVERAGE(Products[Price])
+		formatString: "$"#,##0.00
 		displayFolder: Product Metrics
 		lineageTag: b1a02d0a-7495-48fb-9653-6806773df34b
 

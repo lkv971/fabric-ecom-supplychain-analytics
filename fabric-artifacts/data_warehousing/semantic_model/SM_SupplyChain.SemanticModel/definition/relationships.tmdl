@@ -7,7 +7,7 @@ relationship 0fa24f7b-8604-ed10-0684-4881903e020d
 	toColumn: Countries.'Country ID'
 
 relationship c517f0ae-2589-3f75-92fb-f6c1adf58072
-	fromColumn: Orders.'Order Date'
+	fromColumn: Orders.Date
 	toColumn: Dates.Date
 
 relationship d1e697a6-478e-b352-5384-b73172bca53a

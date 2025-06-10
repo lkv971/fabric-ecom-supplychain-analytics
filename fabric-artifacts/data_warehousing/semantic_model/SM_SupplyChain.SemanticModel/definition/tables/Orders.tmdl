@@ -3,6 +3,7 @@ table Orders
 	sourceLineageTag: [SupplyChain].[FactOrders]
 
 	measure 'Average Discount' = AVERAGE(Orders[Discount])
+		formatString: "$"#,##0.00
 		displayFolder: Order Metrics
 		lineageTag: 24cc3ab1-ef01-4586-89d2-18c4a9535845
 
@@ -13,6 +14,7 @@ table Orders
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Average Order Value' = DIVIDE([Total Sales After Discount], [Total Orders])
+		formatString: "$"#,##0.00
 		displayFolder: Order Metrics
 		lineageTag: a7b080f3-f74a-45a9-9e76-27dfe8584030
 
@@ -21,6 +23,7 @@ table Orders
 		changedProperty = Name
 
 	measure 'Average Price' = AVERAGE(Orders[Price])
+		formatString: "$"#,##0.00
 		displayFolder: Order Metrics
 		lineageTag: 161bec54-c7ab-4298-824d-5b25ebb55eed
 
@@ -36,6 +39,7 @@ table Orders
 			    VAR NonDiscountedSales = CALCULATE([Total Sales], Orders[Discount] = 0)
 			    RETURN DIVIDE(DiscountedSales, NonDiscountedSales, 0)
 			```
+		formatString: #,##0.00 %
 		displayFolder: Order Metrics
 		lineageTag: 2c3d3454-14a6-44b1-8d97-d4f631c66d9f
 
@@ -44,6 +48,7 @@ table Orders
 		changedProperty = Name
 
 	measure 'Discount Rate %' = DIVIDE([Total Discounts], [Total Sales After Discount])
+		formatString: #,##0.00 %
 		displayFolder: Order Metrics
 		lineageTag: 6f9f6841-63f8-4ab7-a56f-51c625320866
 
@@ -52,6 +57,7 @@ table Orders
 		changedProperty = Name
 
 	measure 'Profit Margin %' = DIVIDE([Total Profit], [Total Sales], 0)
+		formatString: #,##0.00 %
 		displayFolder: Order Metrics
 		lineageTag: 9398e6f8-b381-476d-9627-9bc847f305ab
 
@@ -60,6 +66,7 @@ table Orders
 		changedProperty = Name
 
 	measure 'Total Discounts' = SUM(Orders[Discount])
+		formatString: "$"#,##0.00
 		displayFolder: Order Metrics
 		lineageTag: ba0d6f87-a6b0-4d29-b946-391b24fa820c
 
@@ -88,6 +95,7 @@ table Orders
 		changedProperty = Name
 
 	measure 'Total Profit' = SUM(Orders[Profit])
+		formatString: "$"#,##0.00
 		displayFolder: Order Metrics
 		lineageTag: f1a2dda2-46fc-4980-bf06-ac9c306c3e85
 
@@ -98,6 +106,7 @@ table Orders
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Total Sales' = SUM(Orders[Total])
+		formatString: "$"#,##0.00
 		displayFolder: Order Metrics
 		lineageTag: 1b49f8aa-5067-4eba-8554-aafb0bc16ff8
 
@@ -108,6 +117,7 @@ table Orders
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Total Sales After Discount' = SUM(Orders[Total After Discount])
+		formatString: "$"#,##0.00
 		displayFolder: Order Metrics
 		lineageTag: 9e0d799f-d165-47a7-94d8-b35645c9c909
 
@@ -118,6 +128,7 @@ table Orders
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Average Fulfillment Time' = [Average Lead Time] + [Average Shipping Time]
+		formatString: #,##0.00
 		displayFolder: Shipping Metrics
 		lineageTag: 5a577cd1-ca02-4a20-a86f-c2aebe51e15e
 
@@ -126,6 +137,7 @@ table Orders
 		changedProperty = Name
 
 	measure 'Average Lead Time' = AVERAGE(Orders[Days For Shipment])
+		formatString: #,##0.00
 		displayFolder: Shipping Metrics
 		lineageTag: 04820bed-7c3c-4295-bdc1-b8b1a42021f1
 
@@ -136,6 +148,7 @@ table Orders
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Average Shipping Time' = AVERAGE(Orders[Days For Shipping])
+		formatString: #,##0.00
 		displayFolder: Shipping Metrics
 		lineageTag: b885e702-2a1d-49d7-9684-6cfd881c407a
 
@@ -155,6 +168,7 @@ table Orders
 		changedProperty = Name
 
 	measure 'Late Delivery Rate %' = DIVIDE([Late Delivery Count], COUNT(Orders[Order ID]))
+		formatString: #,##0.00 %
 		displayFolder: Shipping Metrics
 		lineageTag: 12ca9cde-be75-47fa-b73c-4683de3898f7
 
@@ -174,6 +188,7 @@ table Orders
 		changedProperty = Name
 
 	measure 'On Time Delivery Rate %' = DIVIDE([On Time Delivery Count], COUNT(Orders[Order ID]))
+		formatString: #,##0.00 %
 		displayFolder: Shipping Metrics
 		lineageTag: aab4aa75-b0b8-4aa1-8e72-3ba1c8e32a10
 
@@ -184,6 +199,7 @@ table Orders
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Target = AVERAGE(Orders[On Time Shipping Target])
+		formatString: #,##0.00
 		displayFolder: Shipping Metrics
 		lineageTag: a0cab19a-032c-495d-8638-179bd37c1bc7
 
@@ -194,6 +210,7 @@ table Orders
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'LY Sales' = CALCULATE([Total Sales After Discount], SAMEPERIODLASTYEAR(Dates[Date]))
+		formatString: "$"#,##0
 		displayFolder: Time Intelligence
 		lineageTag: a10a6c7b-74e6-45ff-91e5-d2fd9cd77ff6
 
@@ -204,6 +221,7 @@ table Orders
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'MTD Sales' = TOTALMTD([Total Sales After Discount], Dates[Date])
+		formatString: "$"#,##0.00
 		displayFolder: Time Intelligence
 		lineageTag: 71b1a503-19da-4992-a82f-4403ab3785a5
 
@@ -214,6 +232,7 @@ table Orders
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'QTD Sales' = TOTALQTD([Total Sales After Discount], Dates[Date])
+		formatString: "$"#,##0.00
 		displayFolder: Time Intelligence
 		lineageTag: 59670388-fead-4612-95e4-32af66910603
 
@@ -228,6 +247,7 @@ table Orders
 			
 			
 			```
+		formatString: "$"#,##0.00
 		displayFolder: Time Intelligence
 		lineageTag: c22368f1-5651-48ca-b1ad-1c7a7e931f56
 
@@ -243,6 +263,7 @@ table Orders
 			    VAR PreviousYearRevenue = CALCULATE([Total Sales After Discount], SAMEPERIODLASTYEAR(Dates[Date]))
 			    RETURN DIVIDE(CurrentYearRevenue - PreviousYearRevenue, PreviousYearRevenue, 0)
 			```
+		formatString: #,##0.00 %
 		displayFolder: Time Intelligence
 		lineageTag: 13088931-1bec-41c8-ab7b-05f1e1183381
 
@@ -255,6 +276,7 @@ table Orders
 	measure 'YTD Sales' = ```
 			TOTALYTD([Total Sales After Discount], Dates[Date]) 
 			```
+		formatString: "$"#,##0.00
 		displayFolder: Time Intelligence
 		lineageTag: 03bd4a2a-f340-48de-bbd0-551fa675e346
 
@@ -280,7 +302,7 @@ table Orders
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Order Date'
+	column Date
 		dataType: dateTime
 		isHidden
 		formatString: Short Date
@@ -576,7 +598,8 @@ table Orders
 		annotation PBI_FormatHint = {"isCustom":true}
 
 	column 'On Time Shipping Target'
-		dataType: double
+		dataType: decimal
+		formatString: #,##0.00
 		sourceProviderType: float
 		displayFolder: Shipping Metrics
 		lineageTag: ae691b35-85a3-4b31-b354-0b21fe9ed0af

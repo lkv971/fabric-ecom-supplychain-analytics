@@ -1,0 +1,8 @@
+role Corporate_Director
+	modelPermission: read
+
+	tablePermission Customers = Customers[Segment] = "Corporate"
+
+	tablePermission Countries
+		metadataPermission: none
+

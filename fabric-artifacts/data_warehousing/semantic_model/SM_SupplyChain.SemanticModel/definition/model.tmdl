@@ -2,6 +2,7 @@ model Model
 	culture: en-US
 	collation: Latin1_General_100_BIN2_UTF8
 	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
 	sourceQueryCulture: en-US
 	dataAccessOptions
 		legacyRedirects
@@ -15,6 +16,8 @@ annotation PBI_QueryOrder = ["DatabaseQuery"]
 
 annotation PBI_ProTooling = ["WebModelingEdit"]
 
+annotation __TEdtr = 1
+
 ref table Categories
 ref table Countries
 ref table Customers
@@ -22,6 +25,10 @@ ref table Dates
 ref table Departments
 ref table Products
 ref table Orders
+
+ref role Corporate_Director
+ref role Home_Office_Director
+ref role Consumer_Director
 
 ref cultureInfo en-US
 

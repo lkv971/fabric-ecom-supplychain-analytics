@@ -3,22 +3,6 @@ table Dates
 	sourceLineageTag: [SupplyChain].[DimDates]
 	dataCategory: Time
 
-	column 'Date ID'
-		dataType: int64
-		isHidden
-		formatString: 0
-		sourceProviderType: int
-		lineageTag: 55f14b6b-8eb8-4d95-af50-b4cc7b90b433
-		sourceLineageTag: DateID
-		summarizeBy: none
-		sourceColumn: DateID
-
-		changedProperty = Name
-
-		changedProperty = IsHidden
-
-		annotation SummarizationSetBy = Automatic
-
 	column Date
 		dataType: dateTime
 		isKey

@@ -1,0 +1,8 @@
+role Consumer_Director
+	modelPermission: read
+
+	tablePermission Customers = Customers[Segment] = "Consumer"
+
+	tablePermission Countries
+		metadataPermission: none
+

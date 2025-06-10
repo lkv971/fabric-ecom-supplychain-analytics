@@ -84,13 +84,13 @@ table Products
 		annotation SummarizationSetBy = Automatic
 
 	column Price
-		dataType: double
+		dataType: decimal
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		sourceProviderType: float
 		displayFolder: Product Details
 		lineageTag: be4d1e2e-2b9e-41e6-9d49-632138beb024
 		sourceLineageTag: Price
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: Price
 
 		changedProperty = DisplayFolder

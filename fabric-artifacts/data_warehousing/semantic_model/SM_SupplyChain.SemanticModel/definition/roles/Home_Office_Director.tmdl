@@ -1,0 +1,11 @@
+role Home_Office_Director
+	modelPermission: read
+
+	tablePermission Customers = ```
+			Customers[Segment] = "Home Office"
+			
+			```
+
+	tablePermission Countries
+		metadataPermission: none
+

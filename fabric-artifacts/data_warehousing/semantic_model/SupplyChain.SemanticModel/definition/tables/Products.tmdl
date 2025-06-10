@@ -1,27 +1,30 @@
 table Products
-	lineageTag: 0de1ccfc-dbf6-4b01-b85e-265bb7b3214b
-	sourceLineageTag: 84536826-6373-4afe-9790-4d62d5c3a0f0
+	lineageTag: dbabd01a-9bfb-49e7-986c-de139f187f08
+	sourceLineageTag: 88423e5f-2249-478d-9119-192ba6dee359
 
 	measure 'Average Product Price' = EXTERNALMEASURE("Average Product Price", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Product Metrics
-		lineageTag: 74c158c4-3a03-4351-a0c9-82ad01028477
-		sourceLineageTag: 92859d6b-73f2-4882-9933-ee5c3cdb606e
+		lineageTag: 89aa97ea-ea2b-4a6b-8215-ca52e5c7db81
+		sourceLineageTag: b1a02d0a-7495-48fb-9653-6806773df34b
 		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Top Selling Product' = EXTERNALMEASURE("Top Selling Product", STRING, "DirectQuery to AS - SM_SupplyChain")
 		displayFolder: Product Metrics
-		lineageTag: e093a953-31cc-4a80-8ad7-24c51d748a19
-		sourceLineageTag: 1016a5eb-7ea6-4d09-bc62-218c4bd70e20
+		lineageTag: 225e24b0-6cd5-4c00-aad9-c8298b503204
+		sourceLineageTag: 579b254c-a667-4454-8f50-c55a60885a17
 		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
 
 	column 'Product ID'
 		dataType: int64
 		isHidden
 		isNullable: false
 		formatString: 0
-		lineageTag: b6cff2f2-5fae-43bd-9fb2-c73ce4d0371f
-		sourceLineageTag: 4e68391f-37c4-4526-b0ca-6fe085e61ee8
+		lineageTag: 2d0bd49f-f99c-432e-908e-9afc91ed74fb
+		sourceLineageTag: 10fdaac9-0270-4df1-93dd-9e8125134197
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Product ID
@@ -31,8 +34,8 @@ table Products
 	column Product
 		dataType: string
 		displayFolder: Product Details
-		lineageTag: 7a495335-3ed1-4471-ba71-4410391d119f
-		sourceLineageTag: 8d462753-83c4-40e1-a92e-553bc27a09d6
+		lineageTag: 6d6a575d-9b6e-42ca-a0cf-9239ad48829d
+		sourceLineageTag: b842c6e6-f338-42ad-911c-1273da256b70
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Product
@@ -43,8 +46,8 @@ table Products
 		dataType: int64
 		isHidden
 		formatString: 0
-		lineageTag: 3c258e66-094c-42bd-aa89-c63042984ca1
-		sourceLineageTag: f7e07b05-8523-442b-8755-d636ae08eafe
+		lineageTag: c2ed28f2-2c0a-4c3b-bfd0-ef7d3e4a08c3
+		sourceLineageTag: 7175ed37-4bde-4858-9822-a7b3c48530c6
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Category ID
@@ -55,8 +58,8 @@ table Products
 		dataType: int64
 		isHidden
 		formatString: 0
-		lineageTag: e7d5cc7b-7f1a-49cb-ba71-e73a572b4d4e
-		sourceLineageTag: 1676d0b7-700a-4c38-9733-7ce43e59e24a
+		lineageTag: c5743cbb-01d8-4949-b61f-8b858bd9eaea
+		sourceLineageTag: 241ee521-e6d8-4793-a03e-56e24a175660
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Department ID
@@ -67,8 +70,8 @@ table Products
 		dataType: double
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Product Details
-		lineageTag: 1ac4d6d5-f9a5-4520-a337-dec96c2f8793
-		sourceLineageTag: 60b45b9b-b5c7-4087-be0c-ea55c060202a
+		lineageTag: cfafe167-cd07-4cd3-8ef8-bfcaf6acde1c
+		sourceLineageTag: be4d1e2e-2b9e-41e6-9d49-632138beb024
 		dataCategory: Uncategorized
 		summarizeBy: sum
 		sourceColumn: Price

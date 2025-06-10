@@ -12,11 +12,11 @@ annotation PBIDesktopVersion = 2.139.1678.0 (24.12)+2a034ab280bddf891eb7bb9ebfe6
 
 annotation PBI_QueryOrder = ["DirectQuery to AS - SM_SupplyChain"]
 
-ref table Countries
 ref table Categories
-ref table Departments
+ref table Countries
 ref table Customers
 ref table Dates
+ref table Departments
 ref table Products
 ref table Orders
 

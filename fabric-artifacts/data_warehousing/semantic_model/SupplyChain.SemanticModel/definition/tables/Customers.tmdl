@@ -1,32 +1,37 @@
 table Customers
-	lineageTag: 98041428-5c52-4d16-b9f4-99d13a55feeb
-	sourceLineageTag: 3f0acbf3-f436-4606-a032-618c37cfd575
+	lineageTag: bbbc1988-70f7-4035-ba25-638058ddd07e
+	sourceLineageTag: e8f37b41-5f21-41c7-862c-b05ff860a907
+
+	measure 'Customer Rentention Rate %' = EXTERNALMEASURE("Customer Rentention Rate %", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Customer Metrics
+		lineageTag: 04416807-cef3-4bc3-b75d-b5463d6237b1
+		sourceLineageTag: 30d053a3-37ab-4db0-932c-33775d54ac14
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Top Customer Segment' = EXTERNALMEASURE("Top Customer Segment", STRING, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Customer Metrics
+		lineageTag: 16c1a95b-7f82-4d5c-b3d4-d7cb0f915c9b
+		sourceLineageTag: dfb8217e-71e6-4fe6-ae20-d8c5b2ec263b
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isText":true}
 
 	measure 'Total Customers' = EXTERNALMEASURE("Total Customers", INTEGER, "DirectQuery to AS - SM_SupplyChain")
 		formatString: 0
 		displayFolder: Customer Metrics
-		lineageTag: b5218209-99a0-486e-b450-6c717b36656e
-		sourceLineageTag: 5dc321dd-8fd1-4ef0-87b9-53367956f16f
-		dataCategory: Uncategorized
-
-	measure 'Customer Rentention Rate %' = EXTERNALMEASURE("Customer Rentention Rate %", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		displayFolder: Customer Metrics
-		lineageTag: c3a3a7b8-49db-4db1-8181-a4b33fa6d4c2
-		sourceLineageTag: 488f8877-9ba1-4d79-89c2-d3d84a8345c7
-		dataCategory: Uncategorized
-
-	measure 'Top Customer Segment' = EXTERNALMEASURE("Top Customer Segment", STRING, "DirectQuery to AS - SM_SupplyChain")
-		displayFolder: Customer Metrics
-		lineageTag: abee0d30-21e7-4cce-af40-6481db6ae122
-		sourceLineageTag: 828fa96c-0459-46ed-ae10-4b68673d480d
+		lineageTag: e790523d-cc6f-433e-96d0-f9b2394a6c8c
+		sourceLineageTag: 42ba1ed2-0e7a-4444-b9fc-316b7a837981
 		dataCategory: Uncategorized
 
 	column 'Customer ID'
 		dataType: int64
+		isHidden
 		isNullable: false
 		formatString: 0
-		lineageTag: 50e55e57-0da6-4815-8ce1-76d62c1d39e1
-		sourceLineageTag: 3503bd94-1e2d-4a22-91e1-52c78e64cc58
+		lineageTag: d2ffc702-1cf3-4de4-b8bc-dffcf4febae2
+		sourceLineageTag: 7e9021f8-18f2-4cce-951a-1dfd0b620edb
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Customer ID
@@ -36,8 +41,8 @@ table Customers
 	column 'First Name'
 		dataType: string
 		displayFolder: Customer Details
-		lineageTag: 3de9e229-86b9-4f79-88ee-36f434be9358
-		sourceLineageTag: 8ab5f3dc-3f80-4784-944e-3a10b255a357
+		lineageTag: acc4f7d2-396d-4b76-827a-14bd81134e6f
+		sourceLineageTag: c76c550d-bc6b-489a-8cd3-f69da81c7bd1
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: First Name
@@ -47,8 +52,8 @@ table Customers
 	column 'Last Name'
 		dataType: string
 		displayFolder: Customer Details
-		lineageTag: c45ae938-d032-48fb-b15a-4f11acf7bd69
-		sourceLineageTag: 42804568-ab53-4f45-bf4a-f61cfbadd399
+		lineageTag: 4eb19309-3e46-4850-b14d-11b6b0e76d88
+		sourceLineageTag: e3f9a65c-c3eb-4890-9c40-b8396595a2a4
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Last Name
@@ -57,8 +62,8 @@ table Customers
 
 	column State
 		dataType: string
-		lineageTag: b051772b-a5c9-4943-b9ce-7ac5668bc4a0
-		sourceLineageTag: cc44c46f-239a-46e2-9422-83cca01dcde3
+		lineageTag: 65f71376-4fa1-4d33-ae62-577a0179d8a7
+		sourceLineageTag: 27c60933-d791-40b0-bd8d-9d15c60a4109
 		dataCategory: StateOrProvince
 		summarizeBy: none
 		sourceColumn: State
@@ -67,8 +72,8 @@ table Customers
 
 	column Country
 		dataType: string
-		lineageTag: 7c28801b-b734-4009-85f4-4ea55e4b28fc
-		sourceLineageTag: 94ba8e2e-2fd9-48c5-ae34-42a277e53d38
+		lineageTag: 3097dc11-6132-4057-8904-c9e9fa96665c
+		sourceLineageTag: 62398a00-ca32-4210-909f-350b1b032422
 		dataCategory: Country
 		summarizeBy: none
 		sourceColumn: Country
@@ -77,8 +82,8 @@ table Customers
 
 	column Segment
 		dataType: string
-		lineageTag: cd1e33c0-2f30-4c94-9296-f944e72e8e72
-		sourceLineageTag: 72a19fa0-26d8-4dad-b21b-f4458859b00f
+		lineageTag: 31e94cfe-6d1d-4b39-8876-bd1e2d2a3d46
+		sourceLineageTag: 4b853bdc-a6f0-4bc0-b879-9877fa476dd9
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Segment
@@ -88,8 +93,8 @@ table Customers
 	column 'Unique Customer Key'
 		dataType: string
 		displayFolder: Customer Details
-		lineageTag: 7f51a712-1d2e-4254-a9bd-aaab5438d7c1
-		sourceLineageTag: 34d7435e-0b8e-4975-9485-e660c2633254
+		lineageTag: 5f76db44-a8a6-434e-b13f-0b7e09c881bd
+		sourceLineageTag: 067f2b27-76e8-42b4-98bb-903aedfea8ef
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Unique Customer Key
@@ -97,17 +102,17 @@ table Customers
 		annotation SummarizationSetBy = User
 
 	hierarchy 'Customer Geography Hierarchy'
-		lineageTag: e94cbf73-bf91-462b-bf81-e88db4a146d2
-		sourceLineageTag: b7979814-21e3-47f4-b9e5-5a94c6a1ad5b
+		lineageTag: b49b6d45-d690-4d6d-ab34-96652edeba8c
+		sourceLineageTag: 2ac8f48e-d050-4e09-bbaf-0761f261af06
 
 		level Country
-			lineageTag: 96c853bb-3735-40cb-9c8d-3d53137b0176
-			sourceLineageTag: 4c438f9b-ae96-4c64-967c-6daf5278d1e2
+			lineageTag: e6b9bdea-3285-4249-b476-a33503c6945f
+			sourceLineageTag: e3c62e75-3c81-4209-90ee-1dd23d816791
 			column: Country
 
 		level State
-			lineageTag: 232396fc-71dd-40b1-8af2-75b300402417
-			sourceLineageTag: 483fb7ba-1ba1-40b8-a98d-a2f9f019cb51
+			lineageTag: 2e3128f6-15d8-4b50-89ea-7d9b11f96542
+			sourceLineageTag: 5c533ee5-58d6-4ff7-90ef-ed36f56ef8b2
 			column: State
 
 	partition Customers = entity

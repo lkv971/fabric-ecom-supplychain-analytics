@@ -1,195 +1,232 @@
 table Orders
-	lineageTag: 707abc75-4bf1-4758-8178-1c306e9569e6
-	sourceLineageTag: 23ec373f-6193-4ac2-a806-4104cd5a7e38
-
-	measure 'Total Sales' = EXTERNALMEASURE("Total Sales", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Order Metrics
-		lineageTag: a77ac8f8-29bd-4f5a-9681-aaa62d30b7d5
-		sourceLineageTag: 785ac03e-3f7a-41bd-9334-73a780fb6c41
-		dataCategory: Uncategorized
-
-	measure 'Total Profit' = EXTERNALMEASURE("Total Profit", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Order Metrics
-		lineageTag: 1602bbb4-0d1a-45b1-a00d-38a084d6c9ee
-		sourceLineageTag: 709d1b14-c0d6-4cfc-8e76-c701bfb94ee6
-		dataCategory: Uncategorized
+	lineageTag: 702edbb5-f5bb-485f-af1b-e4737765bb17
+	sourceLineageTag: d23aa252-be1e-44b1-8392-bcc62e551ffa
 
 	measure 'Average Discount' = EXTERNALMEASURE("Average Discount", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Order Metrics
-		lineageTag: e5dfc2b1-719a-4eda-bb1c-5cafe1b7a238
-		sourceLineageTag: 8d763fe9-444e-418c-bb61-6dcb8e9c2567
+		lineageTag: 7c3a3686-cfa8-441d-8f7b-96bfa78d681b
+		sourceLineageTag: 24cc3ab1-ef01-4586-89d2-18c4a9535845
 		dataCategory: Uncategorized
 
-	measure 'Profit Margin %' = EXTERNALMEASURE("Profit Margin %", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: 0.00%;-0.00%;0.00%
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Order Value' = EXTERNALMEASURE("Average Order Value", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
 		displayFolder: Order Metrics
-		lineageTag: 3f7fdf1a-642d-40cb-82d3-7d277b371ee5
-		sourceLineageTag: 3456e67f-963a-493c-bc8a-aabdf8f8a27f
+		lineageTag: 902b9496-f0a1-4698-bd84-6acc25b981a3
+		sourceLineageTag: a7b080f3-f74a-45a9-9e76-27dfe8584030
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Price' = EXTERNALMEASURE("Average Price", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Order Metrics
+		lineageTag: 1e026fec-59a8-4c27-a69f-ecebd1944e7b
+		sourceLineageTag: 161bec54-c7ab-4298-824d-5b25ebb55eed
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Discount Effectiveness Rate %' = EXTERNALMEASURE("Discount Effectiveness Rate %", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Order Metrics
+		lineageTag: e997a721-e8b2-4449-9062-cc187f24a5dd
+		sourceLineageTag: 2c3d3454-14a6-44b1-8d97-d4f631c66d9f
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Discount Rate %' = EXTERNALMEASURE("Discount Rate %", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Order Metrics
+		lineageTag: 55b56a32-ad8c-4ab6-aaec-4daa50553cea
+		sourceLineageTag: 6f9f6841-63f8-4ab7-a56f-51c625320866
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Profit Margin %' = EXTERNALMEASURE("Profit Margin %", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Order Metrics
+		lineageTag: c38c7170-0c70-48f8-bf8c-ac7cc379d2a7
+		sourceLineageTag: 9398e6f8-b381-476d-9627-9bc847f305ab
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Discounts' = EXTERNALMEASURE("Total Discounts", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Order Metrics
+		lineageTag: 1870a553-e3eb-4f84-bcd5-56dcc16f341f
+		sourceLineageTag: ba0d6f87-a6b0-4d29-b946-391b24fa820c
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Orders' = EXTERNALMEASURE("Total Orders", INTEGER, "DirectQuery to AS - SM_SupplyChain")
+		formatString: 0
+		displayFolder: Order Metrics
+		lineageTag: d9357f05-2251-4507-b29b-d5d58ae29002
+		sourceLineageTag: 277dc976-8ca6-4f14-91d2-e80eeeee0574
 		dataCategory: Uncategorized
 
 	measure 'Total Products Sold' = EXTERNALMEASURE("Total Products Sold", INTEGER, "DirectQuery to AS - SM_SupplyChain")
 		formatString: 0
 		displayFolder: Order Metrics
-		lineageTag: b8140eb4-14ec-4b74-9a9b-af7ff15bc823
-		sourceLineageTag: 0baa30ee-f2c4-4670-856a-0ea86ed4a5e9
+		lineageTag: bb4a8109-af02-41ec-aac9-67ecd99d8cbb
+		sourceLineageTag: dd8fd45b-0ad8-482c-8a3c-a23ad429b980
 		dataCategory: Uncategorized
 
-	measure 'Average Shipping Time' = EXTERNALMEASURE("Average Shipping Time", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: 0.00
-		displayFolder: Shipping Metrics
-		lineageTag: 67098659-69e4-444b-8588-59dbb3d815c5
-		sourceLineageTag: 4b828004-540d-4dcd-83c6-01c2276e9eec
+	measure 'Total Profit' = EXTERNALMEASURE("Total Profit", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Order Metrics
+		lineageTag: 587ee570-9375-4aae-8aad-5025d2c26f30
+		sourceLineageTag: f1a2dda2-46fc-4980-bf06-ac9c306c3e85
 		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Sales' = EXTERNALMEASURE("Total Sales", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Order Metrics
+		lineageTag: 18a0c912-579e-4c86-9fe4-d66d5feb7ee2
+		sourceLineageTag: 1b49f8aa-5067-4eba-8554-aafb0bc16ff8
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Total Sales After Discount' = EXTERNALMEASURE("Total Sales After Discount", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Order Metrics
+		lineageTag: 8232fc81-69f2-4158-b7d2-a0ca7f40087e
+		sourceLineageTag: 9e0d799f-d165-47a7-94d8-b35645c9c909
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Fulfillment Time' = EXTERNALMEASURE("Average Fulfillment Time", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Shipping Metrics
+		lineageTag: 41ec518d-39d3-4cc1-b944-ed8053418d39
+		sourceLineageTag: 5a577cd1-ca02-4a20-a86f-c2aebe51e15e
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Average Lead Time' = EXTERNALMEASURE("Average Lead Time", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: 0.00
 		displayFolder: Shipping Metrics
-		lineageTag: 39e54673-dc28-49c4-a3ae-e60c91ea1017
-		sourceLineageTag: 5d7ad313-142f-481a-bf0b-9c72f4b0b016
+		lineageTag: fe130a86-23a3-475f-bee7-1df2cd3f4e11
+		sourceLineageTag: 04820bed-7c3c-4295-bdc1-b8b1a42021f1
 		dataCategory: Uncategorized
 
-	measure 'YTD Sales' = EXTERNALMEASURE("YTD Sales", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Time Intelligence
-		lineageTag: ce2d775d-e5bd-49a2-997f-2571a9410105
-		sourceLineageTag: 40ff603a-2300-4225-a320-0489961d99c7
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Shipping Time' = EXTERNALMEASURE("Average Shipping Time", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Shipping Metrics
+		lineageTag: 75111fd8-8f59-49ad-b43c-da080ad07cf3
+		sourceLineageTag: b885e702-2a1d-49d7-9684-6cfd881c407a
 		dataCategory: Uncategorized
 
-	measure 'MTD Sales' = EXTERNALMEASURE("MTD Sales", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Time Intelligence
-		lineageTag: 5cfc1864-ddff-4eb9-8982-13a08f602f65
-		sourceLineageTag: 76bb0973-48c2-41b9-a2fe-f78ade34a926
-		dataCategory: Uncategorized
-
-	measure 'YoY Sales Growth %' = EXTERNALMEASURE("YoY Sales Growth %", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: Time Intelligence
-		lineageTag: b531a7a8-6da5-4b55-9ae8-4ab5db8f6b4a
-		sourceLineageTag: 467484fb-b422-4c40-8c1b-f7cef5196394
-		dataCategory: Uncategorized
-
-	measure 'YoY Sales Change' = EXTERNALMEASURE("YoY Sales Change", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Time Intelligence
-		lineageTag: 9e71294c-92b9-42b8-a4cd-3a4321edd9c8
-		sourceLineageTag: 90b8e0c9-0407-4a2f-bfce-ae9b1dc8c193
-		dataCategory: Uncategorized
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Late Delivery Count' = EXTERNALMEASURE("Late Delivery Count", INTEGER, "DirectQuery to AS - SM_SupplyChain")
 		formatString: 0
 		displayFolder: Shipping Metrics
-		lineageTag: 3d6dff89-cf0f-4f35-8bae-f8ba8b9ed210
-		sourceLineageTag: bd9d0256-8f08-4e6d-8b2e-845c721198c9
+		lineageTag: 825b7dd4-42be-4979-92ce-71820d809d6f
+		sourceLineageTag: 5fb7f46b-25fd-479b-bdd3-4754f6ce18dd
 		dataCategory: Uncategorized
 
 	measure 'Late Delivery Rate %' = EXTERNALMEASURE("Late Delivery Rate %", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Shipping Metrics
-		lineageTag: b767753f-0e00-49b2-a2a6-84d87b8cdf8b
-		sourceLineageTag: bb1aabf3-4f00-4fba-9b47-ce2fe33ebe68
+		lineageTag: 07238004-d5c0-47a0-b8e4-57ba14cb9788
+		sourceLineageTag: 12ca9cde-be75-47fa-b73c-4683de3898f7
 		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'On Time Delivery Count' = EXTERNALMEASURE("On Time Delivery Count", INTEGER, "DirectQuery to AS - SM_SupplyChain")
 		formatString: 0
 		displayFolder: Shipping Metrics
-		lineageTag: bed8159c-5464-4ced-affb-56099830c22d
-		sourceLineageTag: 86de3911-08d9-481f-aff6-b5470ff267a2
+		lineageTag: dc2c0377-bcbb-4abb-b3eb-733fb7912879
+		sourceLineageTag: 228bd2db-4d3e-4fcf-a332-a9d5c0c8d5e5
 		dataCategory: Uncategorized
 
 	measure 'On Time Delivery Rate %' = EXTERNALMEASURE("On Time Delivery Rate %", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: 0.00%;-0.00%;0.00%
 		displayFolder: Shipping Metrics
-		lineageTag: d97e76f6-5f16-4fb9-bff2-ef66a54e9f1e
-		sourceLineageTag: 1db52140-bc87-4052-9918-d25f870c264b
+		lineageTag: 1ce73b35-baac-4b33-ad79-73bb89438cf7
+		sourceLineageTag: aab4aa75-b0b8-4aa1-8e72-3ba1c8e32a10
 		dataCategory: Uncategorized
 
-	measure 'Discount Effectiveness Rate %' = EXTERNALMEASURE("Discount Effectiveness Rate %", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: Order Metrics
-		lineageTag: 62f5c65e-46f0-4f8d-a65e-857c9f303511
-		sourceLineageTag: bf53e390-5058-41d7-ad81-34224654119e
-		dataCategory: Uncategorized
-
-	measure 'Total Sales After Discount' = EXTERNALMEASURE("Total Sales After Discount", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Order Metrics
-		lineageTag: 9d618a14-84c3-4140-b2e3-c9ed02804ada
-		sourceLineageTag: ef363b7c-3e62-4368-9192-6c43178aa30d
-		dataCategory: Uncategorized
-
-	measure 'Average Price' = EXTERNALMEASURE("Average Price", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Order Metrics
-		lineageTag: c4f0dc62-4724-4556-be4d-ee61c88e32e2
-		sourceLineageTag: 889a057a-179a-4f1b-a733-8be7ea271cbc
-		dataCategory: Uncategorized
-
-	measure 'Total Orders' = EXTERNALMEASURE("Total Orders", INTEGER, "DirectQuery to AS - SM_SupplyChain")
-		formatString: 0
-		displayFolder: Order Metrics
-		lineageTag: 443ee842-187d-4fb7-a4c1-7abc6caee212
-		sourceLineageTag: 2a8b2c96-2b13-4ba7-8540-9b2b34f3e548
-		dataCategory: Uncategorized
-
-	measure 'QTD Sales' = EXTERNALMEASURE("QTD Sales", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Time Intelligence
-		lineageTag: ca147251-28f3-4940-8f37-70a57546a769
-		sourceLineageTag: 279290f6-e65a-424f-95a4-259a5691c742
-		dataCategory: Uncategorized
-
-	measure 'LY Sales' = EXTERNALMEASURE("LY Sales", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Time Intelligence
-		lineageTag: 35fc29c4-d3d9-4225-bd45-d0e8f45ee4c0
-		sourceLineageTag: 184b0406-e430-423f-a137-85255cf8761b
-		dataCategory: Uncategorized
-
-	measure 'Total Discounts' = EXTERNALMEASURE("Total Discounts", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Order Metrics
-		lineageTag: ca3c0688-164c-49c7-a6a3-8ebe5cd8877a
-		sourceLineageTag: 001975ba-4f0e-42d8-82a5-627393655154
-		dataCategory: Uncategorized
-
-	measure 'Average Order Value' = EXTERNALMEASURE("Average Order Value", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
-		displayFolder: Order Metrics
-		lineageTag: 4823a11e-15ab-41e5-8a15-cd8cc73ad98a
-		sourceLineageTag: 24cc843b-861f-4c6f-9326-666fdc826fec
-		dataCategory: Uncategorized
-
-	measure 'Discount Rate %' = EXTERNALMEASURE("Discount Rate %", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		formatString: 0.00%;-0.00%;0.00%
-		displayFolder: Order Metrics
-		lineageTag: 1d1487a8-a881-4f3b-b824-2d80beb34c9c
-		sourceLineageTag: 66309cad-06ed-42db-ae59-c843c71da526
-		dataCategory: Uncategorized
-
-	measure 'Average Fulfillment Time' = EXTERNALMEASURE("Average Fulfillment Time", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		displayFolder: Shipping Metrics
-		lineageTag: f47e0028-59d3-45ea-9c69-5fc833fbf178
-		sourceLineageTag: 997d29c2-0dd9-4a51-8c9d-bc9ad10f401b
-		dataCategory: Uncategorized
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure Target = EXTERNALMEASURE("Target", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
-		lineageTag: 74f70ee6-244e-46bf-bbc0-6ed0e0998b16
-		sourceLineageTag: 01f18204-6e6a-4885-abe6-bc8bb1eb8eb2
+		displayFolder: Shipping Metrics
+		lineageTag: 375dde7d-57f4-4d43-9c5b-089d6d5c649f
+		sourceLineageTag: a0cab19a-032c-495d-8638-179bd37c1bc7
 		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'LY Sales' = EXTERNALMEASURE("LY Sales", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Time Intelligence
+		lineageTag: 0e251d7c-8579-4ccc-b5ef-de34cb0e3ed6
+		sourceLineageTag: a10a6c7b-74e6-45ff-91e5-d2fd9cd77ff6
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'MTD Sales' = EXTERNALMEASURE("MTD Sales", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Time Intelligence
+		lineageTag: 6e15c7da-50a7-4af5-9d37-945d4409566e
+		sourceLineageTag: 71b1a503-19da-4992-a82f-4403ab3785a5
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'QTD Sales' = EXTERNALMEASURE("QTD Sales", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Time Intelligence
+		lineageTag: d71b23ee-6aa3-4895-a562-7b68d22ad396
+		sourceLineageTag: 59670388-fead-4612-95e4-32af66910603
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'YoY Sales Change' = EXTERNALMEASURE("YoY Sales Change", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Time Intelligence
+		lineageTag: 9ad01aae-af38-4a44-9f26-e6f765d40dec
+		sourceLineageTag: c22368f1-5651-48ca-b1ad-1c7a7e931f56
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'YoY Sales Growth %' = EXTERNALMEASURE("YoY Sales Growth %", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Time Intelligence
+		lineageTag: acefcdc1-90f8-4b72-b4a9-6c3aa31c1d2a
+		sourceLineageTag: 13088931-1bec-41c8-ab7b-05f1e1183381
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'YTD Sales' = EXTERNALMEASURE("YTD Sales", DOUBLE, "DirectQuery to AS - SM_SupplyChain")
+		displayFolder: Time Intelligence
+		lineageTag: affa7d80-6b9b-46f5-b707-0a38b262a276
+		sourceLineageTag: 03bd4a2a-f340-48de-bbd0-551fa675e346
+		dataCategory: Uncategorized
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column 'Order ID'
 		dataType: int64
 		isHidden
 		formatString: 0
-		lineageTag: 93b0fc41-7b41-4e1a-82c7-521095eb5d45
-		sourceLineageTag: 59ad61c4-5523-4c23-b29e-966f7b1fbeb2
+		lineageTag: 992bdcff-07fd-4700-91f1-e459a488f34c
+		sourceLineageTag: 79df6d07-3dae-4968-a8a6-f8ae3ac008ab
 		dataCategory: Uncategorized
-		summarizeBy: distinctCount
+		summarizeBy: count
 		sourceColumn: Order ID
+
+		annotation SummarizationSetBy = User
+
+	column 'Order Date'
+		dataType: dateTime
+		formatString: Short Date
+		displayFolder: Date Keys
+		lineageTag: 30812e00-9409-4551-86a9-255952fc71c3
+		sourceLineageTag: 2b9e0e8a-985a-40ea-986f-7b9fce397f19
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: Order Date
 
 		annotation SummarizationSetBy = User
 
@@ -197,8 +234,8 @@ table Orders
 		dataType: int64
 		isHidden
 		formatString: 0
-		lineageTag: 027c0953-2529-443d-b8b0-4e84c13fa75e
-		sourceLineageTag: d44cd4e6-bce3-48e5-90e0-4a44fb481514
+		lineageTag: 0bde44c5-11c9-4859-b2ad-33b27208a26c
+		sourceLineageTag: 327b5a6e-fd98-48fa-9c00-610ffd6a77c0
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Customer ID
@@ -209,8 +246,8 @@ table Orders
 		dataType: int64
 		isHidden
 		formatString: 0
-		lineageTag: cfd47621-99b3-4e73-9360-db00c48b1b9b
-		sourceLineageTag: 3ced90b1-6ef1-4da8-af3f-84f26b28ffbe
+		lineageTag: 31a5ac83-d4e6-4988-b3fc-908a5d9ff22b
+		sourceLineageTag: 40a6a491-b577-4f43-bd71-043909438efd
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Product ID
@@ -221,8 +258,8 @@ table Orders
 		dataType: int64
 		isHidden
 		formatString: 0
-		lineageTag: f3d0b9a6-5a0a-4100-a2bf-d3dd88266dd4
-		sourceLineageTag: 270187bf-00e1-4fbb-90ee-300541743527
+		lineageTag: 910b9acf-3713-4733-b256-93903512fc71
+		sourceLineageTag: a16f5740-9313-4860-81a8-e4bfb5b266ae
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Country ID
@@ -233,8 +270,8 @@ table Orders
 		dataType: double
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Order Metrics
-		lineageTag: da010698-144d-410d-ad2a-814bea3e85ab
-		sourceLineageTag: 6b952c78-79c1-4442-b539-829be4890d13
+		lineageTag: 84949d97-81e6-4994-b58a-11693c04afbc
+		sourceLineageTag: e6a2775d-97df-4fd5-9077-8308d3bd29c3
 		dataCategory: Uncategorized
 		summarizeBy: sum
 		sourceColumn: Discount
@@ -245,8 +282,8 @@ table Orders
 		dataType: double
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Order Metrics
-		lineageTag: ef42d778-2a2d-475e-9f97-14a9f35534ca
-		sourceLineageTag: 9c08460f-4a80-4d4f-844f-23bdce945572
+		lineageTag: 3a9bed1d-be79-4e2a-9557-739876c2f406
+		sourceLineageTag: f6ee4243-13ea-4cd4-a796-7b030877f23e
 		dataCategory: Uncategorized
 		summarizeBy: sum
 		sourceColumn: Price
@@ -257,8 +294,8 @@ table Orders
 		dataType: int64
 		formatString: 0
 		displayFolder: Order Metrics
-		lineageTag: 60e3f81f-b597-4000-86d7-37913224852f
-		sourceLineageTag: a4ae7888-837f-4f16-be74-ef4dac4b3b56
+		lineageTag: 08dfc697-fc9b-402b-8915-73a66c223d35
+		sourceLineageTag: 431dfe97-0371-4dcf-8b60-49715cd35c5a
 		dataCategory: Uncategorized
 		summarizeBy: average
 		sourceColumn: Quantity
@@ -269,8 +306,8 @@ table Orders
 		dataType: double
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Order Metrics
-		lineageTag: 338b8ba1-df82-48d9-8cb9-987dde183143
-		sourceLineageTag: 661e41d1-294c-429e-989f-f615d74472f0
+		lineageTag: 628f1d99-ed92-4e99-b451-e7adcd234c4a
+		sourceLineageTag: 1838a936-2b56-4770-9f5d-4398b4a31131
 		dataCategory: Uncategorized
 		summarizeBy: sum
 		sourceColumn: Total
@@ -281,8 +318,8 @@ table Orders
 		dataType: double
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Order Metrics
-		lineageTag: 9d712a0f-521a-430c-84a9-ee0bd0434084
-		sourceLineageTag: 8381f146-cf38-4a48-bf46-2994786ca6c5
+		lineageTag: 3a2b89d6-5939-439a-974a-47d25add18fb
+		sourceLineageTag: e1e09d1e-a49f-4eac-ba2a-96f206dcfaa9
 		dataCategory: Uncategorized
 		summarizeBy: sum
 		sourceColumn: Total After Discount
@@ -293,8 +330,8 @@ table Orders
 		dataType: double
 		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
 		displayFolder: Order Metrics
-		lineageTag: c19aa463-124d-4106-96a6-ad04d0157e6c
-		sourceLineageTag: 743468d9-6b5b-4c3b-9307-626904286d43
+		lineageTag: 156db776-89db-4036-b23b-691590f2cd19
+		sourceLineageTag: 00a067d8-fad9-4930-82bd-10f948b47274
 		dataCategory: Uncategorized
 		summarizeBy: sum
 		sourceColumn: Profit
@@ -303,8 +340,8 @@ table Orders
 
 	column 'Payment Type'
 		dataType: string
-		lineageTag: 42b15511-b187-46e9-8e41-4595779e1827
-		sourceLineageTag: 5a424092-b12a-4323-9f87-1c616c3a25c5
+		lineageTag: 10de583b-06e7-4d88-9f4f-15cb39cf4cf1
+		sourceLineageTag: 67c4668b-3fa6-4bca-9aff-e60ded46227f
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Payment Type
@@ -315,10 +352,10 @@ table Orders
 		dataType: int64
 		formatString: 0
 		displayFolder: Shipping Details
-		lineageTag: 0dc6dc89-7dab-4eba-b4d5-1e5c64e6827d
-		sourceLineageTag: 2be9268d-5d21-42c3-a7d8-d11b6b05aa0d
+		lineageTag: 05fd3648-cddf-46e5-9699-ff7702329ebc
+		sourceLineageTag: db2b87fc-7cb3-471e-bde2-b179e04697da
 		dataCategory: Uncategorized
-		summarizeBy: average
+		summarizeBy: sum
 		sourceColumn: Days For Shipping
 
 		annotation SummarizationSetBy = User
@@ -327,10 +364,10 @@ table Orders
 		dataType: int64
 		formatString: 0
 		displayFolder: Shipping Details
-		lineageTag: 6e62d984-4c06-4ae5-bcb3-1008ea65a317
-		sourceLineageTag: 8699aee6-bccf-47cd-9be1-60850e3aaa7c
+		lineageTag: edc1c132-8958-477c-937f-dffc1cae6624
+		sourceLineageTag: 69a31723-e10b-432f-ba33-15e7617c5069
 		dataCategory: Uncategorized
-		summarizeBy: average
+		summarizeBy: sum
 		sourceColumn: Days For Shipment
 
 		annotation SummarizationSetBy = User
@@ -338,8 +375,8 @@ table Orders
 	column 'Shipping Mode'
 		dataType: string
 		displayFolder: Shipping Details
-		lineageTag: 6e2ccc8e-4193-409b-a9b5-6ff848cc7bdd
-		sourceLineageTag: 8df89b1f-222b-4661-b710-2d9fc0c165d7
+		lineageTag: cbcf406f-c38e-4ce6-94d8-e2c40b556ec7
+		sourceLineageTag: 69e27193-808d-454b-bf26-963b080baab7
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Shipping Mode
@@ -350,10 +387,10 @@ table Orders
 		dataType: int64
 		formatString: 0
 		displayFolder: Shipping Details
-		lineageTag: 4a4a0d17-0d65-4256-ae05-a67069f84e42
-		sourceLineageTag: 1891fc8c-069a-475d-acd1-bf800e7005aa
+		lineageTag: 01356d75-f684-4cda-b7e0-cfab09f253bf
+		sourceLineageTag: 3541c319-b4b2-462a-a415-ad2e02d3c769
 		dataCategory: Uncategorized
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Late Delivery Risk
 
 		annotation SummarizationSetBy = User
@@ -361,8 +398,8 @@ table Orders
 	column 'Delivery Status'
 		dataType: string
 		displayFolder: Shipping Details
-		lineageTag: 1607720d-a4e6-43f0-9ed4-ead725bc222f
-		sourceLineageTag: d0b3103b-0295-4167-9a61-0cc5e0ed52db
+		lineageTag: cd7baffa-2874-40e5-905a-65cd1b5407a0
+		sourceLineageTag: 3740a1d4-5f79-4053-afd7-eb20bbd201f3
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Delivery Status
@@ -373,36 +410,26 @@ table Orders
 		dataType: dateTime
 		formatString: Short Date
 		displayFolder: Date Keys
-		lineageTag: 08a3fc7e-8d3b-4172-b9df-86455e80ceed
-		sourceLineageTag: 2c1e7437-82bd-492d-8cab-2fb26ed7e6c5
+		lineageTag: 30ee0385-f9fa-4f56-b0d3-aa013f985b58
+		sourceLineageTag: 4c7c51c1-385c-449b-ab9e-29caf1d4a060
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Shipping Date
 
 		annotation SummarizationSetBy = User
 
-	column 'Order Date'
-		dataType: dateTime
-		formatString: Short Date
-		displayFolder: Date Keys
-		lineageTag: ade659ca-5cd4-45c7-8148-1065a8b74fcb
-		sourceLineageTag: 6eb75466-f9c8-45ec-904c-ba29a1be79d1
-		dataCategory: Uncategorized
-		summarizeBy: none
-		sourceColumn: Order Date
-
-		annotation SummarizationSetBy = User
-
 	column 'On Time Shipping Target'
 		dataType: double
-		formatString: 0.00%;-0.00%;0.00%
-		lineageTag: aae2f7b0-db66-4ae8-9777-9c733e11a15b
-		sourceLineageTag: 08fa009a-6e1a-4d01-9359-e818cae7c823
+		displayFolder: Shipping Metrics
+		lineageTag: f337f50a-4082-4f49-9ea2-abb174b94004
+		sourceLineageTag: ae691b35-85a3-4b31-b354-0b21fe9ed0af
 		dataCategory: Uncategorized
-		summarizeBy: average
+		summarizeBy: sum
 		sourceColumn: On Time Shipping Target
 
 		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition Orders = entity
 		mode: directQuery

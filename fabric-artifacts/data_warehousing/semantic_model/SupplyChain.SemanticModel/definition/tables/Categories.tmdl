@@ -1,14 +1,14 @@
 table Categories
-	lineageTag: 82f77d6f-9347-468f-8f28-37a055990e57
-	sourceLineageTag: 6dfa1168-1cfb-4a4a-945c-b1d42f8828ec
+	lineageTag: 475eba2a-b109-49f0-9527-ccbeb4262f68
+	sourceLineageTag: 0dde8818-32b3-4d25-a12b-babb345df42c
 
 	column 'Category ID'
 		dataType: int64
 		isHidden
 		isNullable: false
 		formatString: 0
-		lineageTag: 133e115d-0bcb-4e6d-a088-a46b10d55437
-		sourceLineageTag: 7d2cf1e7-7784-424f-8211-c7104bfd0300
+		lineageTag: c9579c24-b022-48de-b55d-98b28539da35
+		sourceLineageTag: 56a3ebed-9aa1-4df3-bbb2-0c7ccc6c06a2
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Category ID
@@ -17,8 +17,8 @@ table Categories
 
 	column Category
 		dataType: string
-		lineageTag: af12e5c8-f964-4fc2-9f89-c70e15d6dd2b
-		sourceLineageTag: cd38b754-324a-4eaa-8f82-9b6e2e605493
+		lineageTag: df3221f9-5440-4f13-9f08-2aba7711dd23
+		sourceLineageTag: 6afeb482-c4dd-4395-b912-62c2812bed71
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Category

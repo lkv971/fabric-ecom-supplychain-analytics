@@ -1,14 +1,14 @@
 table Departments
-	lineageTag: 113bb891-07c9-4bc2-af24-1f67016bf608
-	sourceLineageTag: 2df0b0ec-c526-48be-9d0e-8d601e137915
+	lineageTag: edcf3485-4ce0-4fb3-923d-1bf7b2386092
+	sourceLineageTag: dff68934-cef4-4620-ba7d-a0cdf087210b
 
 	column 'Department ID'
 		dataType: int64
 		isHidden
 		isNullable: false
 		formatString: 0
-		lineageTag: c03a8ccc-caf1-458b-8892-344dcdb00067
-		sourceLineageTag: 2de61782-0896-448d-b5bd-03a6bd1fcaf3
+		lineageTag: ee63f83e-5632-43e9-924d-afe7fb1a7b38
+		sourceLineageTag: 1ab7838a-9102-4384-8dd6-15b5cf76627c
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Department ID
@@ -17,8 +17,8 @@ table Departments
 
 	column Department
 		dataType: string
-		lineageTag: eeef9b6e-9dd1-464f-8ce4-6ed5568d2c2c
-		sourceLineageTag: 8ce8cfdf-9605-4bff-807e-069c246cc30c
+		lineageTag: 015b25a2-9eb9-47fe-929a-64f880ed6548
+		sourceLineageTag: 6c5add48-c3f5-4975-89e9-34c438db9527
 		dataCategory: Uncategorized
 		summarizeBy: none
 		sourceColumn: Department

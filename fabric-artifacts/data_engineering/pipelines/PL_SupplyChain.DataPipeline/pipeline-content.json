@@ -55,7 +55,7 @@
             },
             "schema": [],
             "externalReferences": {
-              "connection": "e63f7bdf-d8c6-4ddd-acc7-782c65806864"
+              "connection": "48240398-656d-438c-82a2-2ec49b286214"
             },
             "annotations": []
           },
@@ -161,7 +161,7 @@
                           },
                           "schema": [],
                           "externalReferences": {
-                            "connection": "e63f7bdf-d8c6-4ddd-acc7-782c65806864"
+                            "connection": "48240398-656d-438c-82a2-2ec49b286214"
                           },
                           "annotations": []
                         }
@@ -265,7 +265,7 @@
               "type": "GetMetadata",
               "typeProperties": {
                 "datasetSettings": {
-                  "type": "DelimitedText",
+                  "type": "Binary",
                   "typeProperties": {
                     "location": {
                       "type": "FileServerLocation",
@@ -274,15 +274,10 @@
                         "value": "@item().name\n",
                         "type": "Expression"
                       }
-                    },
-                    "columnDelimiter": ",",
-                    "quoteChar": "\"",
-                    "escapeChar": "\\",
-                    "firstRowAsHeader": true
+                    }
                   },
-                  "schema": [],
                   "externalReferences": {
-                    "connection": "e63f7bdf-d8c6-4ddd-acc7-782c65806864"
+                    "connection": "48240398-656d-438c-82a2-2ec49b286214"
                   },
                   "annotations": []
                 },
@@ -295,7 +290,7 @@
                   "enablePartitionDiscovery": false
                 },
                 "formatSettings": {
-                  "type": "DelimitedTextReadSettings"
+                  "type": "BinaryReadSettings"
                 }
               },
               "policy": {

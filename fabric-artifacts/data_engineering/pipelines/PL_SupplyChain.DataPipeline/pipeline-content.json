@@ -265,7 +265,7 @@
               "type": "GetMetadata",
               "typeProperties": {
                 "datasetSettings": {
-                  "type": "Binary",
+                  "type": "DelimitedText",
                   "typeProperties": {
                     "location": {
                       "type": "FileServerLocation",
@@ -274,8 +274,13 @@
                         "value": "@item().name\n",
                         "type": "Expression"
                       }
-                    }
+                    },
+                    "columnDelimiter": ",",
+                    "quoteChar": "\"",
+                    "escapeChar": "\\",
+                    "firstRowAsHeader": true
                   },
+                  "schema": [],
                   "externalReferences": {
                     "connection": "48240398-656d-438c-82a2-2ec49b286214"
                   },
@@ -290,7 +295,7 @@
                   "enablePartitionDiscovery": false
                 },
                 "formatSettings": {
-                  "type": "BinaryReadSettings"
+                  "type": "DelimitedTextReadSettings"
                 }
               },
               "policy": {

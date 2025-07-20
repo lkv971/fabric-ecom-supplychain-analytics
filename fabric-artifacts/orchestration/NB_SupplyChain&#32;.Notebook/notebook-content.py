@@ -18,13 +18,7 @@
 # META       ]
 # META     },
 # META     "warehouse": {
-# META       "default_warehouse": "5fb6540a-e0cf-4a65-a5a0-98798b54ceb3",
-# META       "known_warehouses": [
-# META         {
-# META           "id": "5fb6540a-e0cf-4a65-a5a0-98798b54ceb3",
-# META           "type": "Datawarehouse"
-# META         }
-# META       ]
+# META       "known_warehouses": []
 # META     }
 # META   }
 # META }

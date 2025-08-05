@@ -463,59 +463,6 @@
                   ]
                 }
               ]
-            },
-            {
-              "type": "PBISemanticModelRefresh",
-              "typeProperties": {
-                "method": "post",
-                "groupId": "1493e9bf-f927-4698-9a67-289c6cecf55a",
-                "datasetId": "47822037-7413-4125-8e35-c247632eae7c",
-                "commitMode": "Transactional",
-                "objects": [
-                  {
-                    "table": "Categories"
-                  },
-                  {
-                    "table": "Countries"
-                  },
-                  {
-                    "table": "Customers"
-                  },
-                  {
-                    "table": "Dates"
-                  },
-                  {
-                    "table": "Departments"
-                  },
-                  {
-                    "table": "Products"
-                  },
-                  {
-                    "table": "Orders"
-                  }
-                ],
-                "waitOnCompletion": true,
-                "operationType": "SemanticModelRefresh"
-              },
-              "externalReferences": {
-                "connection": "c02876ce-2b69-40c2-aa37-0468298fcab6"
-              },
-              "policy": {
-                "timeout": "0.12:00:00",
-                "retry": 0,
-                "retryIntervalInSeconds": 30,
-                "secureInput": false,
-                "secureOutput": false
-              },
-              "name": "SM_SupplyChain refresh",
-              "dependsOn": [
-                {
-                  "activity": "UpdateLogTable",
-                  "dependencyConditions": [
-                    "Succeeded"
-                  ]
-                }
-              ]
             }
           ],
           "ifFalseActivities": []
